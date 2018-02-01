@@ -160,6 +160,8 @@ if __name__ == '__main__':
                 if env.global_done:
                     env.curriculum.increment_lesson(get_progress())
                     info = env.reset(train_mode=fast_simulation)
+                    # We add the first experience after reset
+                    # trainer.add_experiences(info, take_action_outputs[brain_name])
                     for brain_name, trainer in trainers.items():
                         trainer.end_episode()
                 # Decide and take an action

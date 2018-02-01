@@ -19,13 +19,13 @@ public class GridAgent : Agent
 
     }
 
-    public override List<float> CollectState()
+    public override void CollectObservations()
     {
-        return state;
+
     }
 
     // to be implemented by the developer
-    public override void AgentStep(float[] act)
+    public override void AgentAction(float[] act)
     {
         reward = -0.01f;
         int action = Mathf.FloorToInt(act[0]);
@@ -57,6 +57,7 @@ public class GridAgent : Agent
         {
             transform.position = targetPos;
         }
+        Monitor.Log("Reward",reward,MonitorType.slider);
     }
 
     void OnTriggerEnter(Collider col)
